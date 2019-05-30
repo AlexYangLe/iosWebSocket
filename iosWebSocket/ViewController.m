@@ -61,15 +61,7 @@
     closeConnectBtn.backgroundColor = [UIColor orangeColor];
     [closeConnectBtn addTarget:self action:@selector(closeConnect) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeConnectBtn];
-    
-    UIButton *pingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    pingBtn.frame = CGRectMake(50, 300, 100, 40);
-    [pingBtn setTitle:@"sendPing" forState:UIControlStateNormal];
-    pingBtn.layer.cornerRadius = 10;
-    pingBtn.layer.masksToBounds = YES;
-    pingBtn.backgroundColor = [UIColor orangeColor];
-    [pingBtn addTarget:self action:@selector(sendPing) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:pingBtn];
+
     
 }
 
@@ -85,9 +77,6 @@
     [[WebSocketManager shared] webSocketClose];
 }
 
--(void)sendPing{
-    
-}
 
 -(void)websocketManagerDidReceiveMessageWithString:(NSString *)string{
     NSLog(@"string %@",string);

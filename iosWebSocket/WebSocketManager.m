@@ -50,10 +50,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
 
 //建立长连接
 -(void)connectServer{
-//    self.isActiveClose = NO;
-//    self.webScoket.delegate = nil;
-//    [self.webScoket close];
-//    self.webScoket = nil;
     if(self.webScoket){
         return;
     }
@@ -271,7 +267,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
             //只有长连接OPEN开启状态才能调用send方法
             if (self.webScoket.readyState == SR_OPEN) {
                 [self.webScoket send:data];
-                //                [self.webScoket sendData:data error:NULL];
             }else if (self.webScoket.readyState == SR_CONNECTING){
                 //正在连接
                 NSLog(@"正在连接中，重连后会去自动同步数据");
